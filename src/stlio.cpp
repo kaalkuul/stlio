@@ -123,7 +123,7 @@ namespace stlio {
 			}
 			catch (...)
 			{
-				_Istr.setstate(_Myis::badbit, true); /* set badbit and rethrow */
+				_Istr.setstate(_Myis::badbit); /* set badbit and rethrow */
 			}
 		}
 

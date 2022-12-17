@@ -34,6 +34,8 @@ target_compile_definitions(stlio_tests
 
 target_link_libraries(stlio_tests Catch2::Catch2 stlio)
 
-add_test(stlio_tests stlio_tests ${CATCH_EXTRA_ARGS})
-
 set_property(TARGET stlio_tests PROPERTY FOLDER "Tests")
+
+enable_testing()
+
+add_test(stlio_tests stlio_tests ${CATCH_EXTRA_ARGS})
