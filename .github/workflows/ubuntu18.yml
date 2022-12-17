@@ -8,9 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup cmake
-        uses: jwlawson/actions-setup-cmake@v1.4
+        uses: lukka/get-cmake@latest
         with:
-          cmake-version: '3.9.x'
+          cmakeVersion: "~3.20.0"  # use most recent 3.20.x version
       - name: Use cmake
         run: |
           mkdir build &&

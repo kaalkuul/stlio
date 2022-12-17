@@ -1,4 +1,4 @@
-#pragma once
+#include <cmath>
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -8,7 +8,7 @@ namespace Assert
 {
     void equals(float value, float expected, float tolerance)
     {
-        REQUIRE(fabs(value - expected) <= tolerance);
+        REQUIRE(std::abs(value - expected) <= tolerance);
     }
 
     void is20mmbox(const StlInMock& stlin)
