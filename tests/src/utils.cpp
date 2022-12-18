@@ -8,7 +8,12 @@ void ReadStl(stlio::StlIn& stlin, const std::string& path)
     REQUIRE(f);
 
     std::string err;
-    REQUIRE(stlio::ReadStlFile(f, stlin, err));
+    bool result = stlio::ReadStlFile(f, stlin, err);
+    if (!err.empty())
+    {
+        INFO("ReadStlFile returned error: " << err);
+    }
+    REQUIRE(result);
 }
 
 void ReadDataStl(stlio::StlIn& stlin, const std::string& path)
@@ -30,5 +35,9 @@ void WriteStl(stlio::StlOut& stlout, std::string& path, bool ascii)
         ? stlio::WriteAsciiStlFile(f, stlout, err)
         : stlio::WriteBinaryStlFile(f, stlout, err);
 
+    if (!err.empty())
+    {
+        INFO("Write" << (ascii ? "Ascii" : "Binary") << "StlFile returned error: " << err);
+    }
     REQUIRE(result);
 }
