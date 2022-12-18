@@ -20,12 +20,9 @@ void ReadDataStl(stlio::StlIn& stlin, const std::string& path)
 
 void WriteStl(stlio::StlOut& stlout, std::string& path, bool ascii)
 {
-    char name[L_tmpnam];
-    std::tmpnam(name);
+    path = temporary_filename();
 
-    path = name;
-
-    std::ofstream f(name);
+    std::ofstream f(path);
     REQUIRE(f);
 
     std::string err;

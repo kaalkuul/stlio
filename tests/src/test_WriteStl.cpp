@@ -17,8 +17,6 @@ namespace {
     {
         SECTION("ascii 20mmbox")
         {
-            std::ofstream out(std::tmpfile());
-
             StlOutMock stlout;
             Geometry::box20mm(stlout.Facets);
 
@@ -38,8 +36,6 @@ namespace {
     {
         SECTION("binary 20mmbox")
         {
-            std::ofstream out(std::tmpfile());
-
             StlOutMock stlout;
             Geometry::box20mm(stlout.Facets);
 

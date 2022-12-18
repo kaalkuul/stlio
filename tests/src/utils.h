@@ -10,6 +10,13 @@
 #define PATH_SEPARATOR R"(/)"
 #endif
 
+inline std::string temporary_filename()
+{
+	char buffer[L_tmpnam];
+	const char* path = std::tmpnam(buffer);
+	return path;
+}
+
 inline std::string data_path(const std::string& path)
 {
 	auto result = TEST_DATA_DIR PATH_SEPARATOR + path;
