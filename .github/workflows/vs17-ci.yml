@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v3
     - name: Configure
       run: |
-        cmake -G "${{matrix.gen}}" -A ${{matrix.arch}}  -B build
+        cmake -G "${{matrix.gen}}" -A ${{matrix.arch}} -B build
     - name: Build Debug
       run: cmake --build build --config Debug --verbose
     - name: Build Release
@@ -30,8 +30,8 @@ jobs:
     - name: Run Release tests
       run: |
         cd build
-        ctest -C Release  --output-on-failure
+        ctest -C Release -V
     - name: Run Debug tests
       run: |
         cd build
-        ctest -C Debug --output-on-failure
+        ctest -C Debug -V
