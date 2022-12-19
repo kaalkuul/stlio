@@ -4,6 +4,8 @@
 
 void ReadStl(stlio::StlIn& stlin, const std::string& path)
 {
+    CAPTURE(path);
+
     std::ifstream f(path);
     REQUIRE(f);
 
@@ -23,6 +25,8 @@ void ReadDataStl(stlio::StlIn& stlin, const std::string& path)
 void WriteStl(stlio::StlOut& stlout, std::string& path, bool ascii)
 {
     path = temporary_filename();
+
+    CAPTURE(path);
 
     std::ofstream f(path);
     REQUIRE(f);
