@@ -328,13 +328,16 @@ namespace stlio {
 	bool ReadStlFile(istream& in, StlIn& stlin, string& err)
 	{
 		bool isAscii;
-		ios_base::iostate state = in.rdstate();
 		if (!IsAsciiFileFormat(in, isAscii, err))
 			return false;
-		state = in.rdstate();
 
 		in.seekg(0, ios_base::beg);
-		state = in.rdstate();
+		if (!in)
+		{
+			err = "failed to seek to beginning of stream";
+			return false;
+		}
+
 		if (isAscii)
 			return ReadStlFile_ASCII(in, stlin, err);
 		else
