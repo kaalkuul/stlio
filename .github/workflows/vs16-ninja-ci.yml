@@ -20,5 +20,5 @@ jobs:
         cmakeAppendedArgs: -G Ninja
         buildWithCMakeArgs: --config Release  
     - name: 'Run CTest'
-      run: ctest -C Release -V
+      run: ctest -C Release -VV
       working-directory: "${{ github.workspace }}/../../_temp/windows"

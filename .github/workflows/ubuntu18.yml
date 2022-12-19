@@ -17,4 +17,4 @@ jobs:
           cd build &&
           cmake .. &&
           cmake --build . &&
-          ctest -j -V
+          ctest -VV
