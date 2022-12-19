@@ -9,10 +9,7 @@ void ReadStl(stlio::StlIn& stlin, const std::string& path)
 
     std::string err;
     bool result = stlio::ReadStlFile(f, stlin, err);
-    if (!err.empty())
-    {
-        INFO("ReadStlFile returned error: " << err);
-    }
+    CAPTURE(err);
     REQUIRE(result);
 }
 
@@ -35,9 +32,6 @@ void WriteStl(stlio::StlOut& stlout, std::string& path, bool ascii)
         ? stlio::WriteAsciiStlFile(f, stlout, err)
         : stlio::WriteBinaryStlFile(f, stlout, err);
 
-    if (!err.empty())
-    {
-        INFO("Write" << (ascii ? "Ascii" : "Binary") << "StlFile returned error: " << err);
-    }
+    CAPTURE(err);
     REQUIRE(result);
 }
