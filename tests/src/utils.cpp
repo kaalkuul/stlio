@@ -24,7 +24,7 @@ void ReadDataStl(stlio::StlIn& stlin, const std::string& path)
 
 void WriteStl(stlio::StlOut& stlout, std::string& path, bool ascii)
 {
-    path = temporary_filename();
+    path = path.empty() ? temporary_filename() : path;
 
     CAPTURE(path);
 
