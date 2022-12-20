@@ -10,10 +10,11 @@ if (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
 endif()
 
-enable_testing()
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+option(STLIO_BUILD_TESTING "Enable testing for stlio" ON)
 
 add_subdirectory(src)
 
-add_subdirectory(tests)
+if (STLIO_BUILD_TESTING)
+  enable_testing()
+  add_subdirectory(tests)
+endif()
