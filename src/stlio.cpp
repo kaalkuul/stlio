@@ -10,7 +10,7 @@ namespace stlio {
 
 	using namespace std;
 
-	inline bool IsAsciiFileFormat(istream& in, bool& isAscii, string& err)
+	static inline bool IsAsciiFileFormat(istream& in, bool& isAscii, string& err)
 	{
 		char chars[20];
 		in.read(chars, 20);
@@ -33,7 +33,7 @@ namespace stlio {
 		return true;
 	}
 
-	bool HandleSolid(bool& flag, const string& line, StlIn& stlin, string& err)
+	static bool HandleSolid(bool& flag, const string& line, StlIn& stlin, string& err)
 	{
 		if (!flag)
 		{
@@ -48,7 +48,7 @@ namespace stlio {
 		return true;
 	}
 
-	bool HandleEndSolid(bool& flag, const string& line, StlIn& stlin, string& err)
+	static bool HandleEndSolid(bool& flag, const string& line, StlIn& stlin, string& err)
 	{
 		if (!flag)
 		{
@@ -136,7 +136,7 @@ namespace stlio {
 		return _Istr;
 	}
 
-	bool ReadStlFile_ASCII(istream& in, StlIn& stlin, string& err)
+	static bool ReadStlFile_ASCII(istream& in, StlIn& stlin, string& err)
 	{
 		string buffer;
 		vector<string> tokens;
@@ -265,7 +265,7 @@ namespace stlio {
 		return true;
 	}
 
-	bool ReadStlFile_BINARY(istream& in, StlIn& stlin, string& err)
+	static bool ReadStlFile_BINARY(istream& in, StlIn& stlin, string& err)
 	{
 		// Example: 6884 bytes
 		//	80 header
