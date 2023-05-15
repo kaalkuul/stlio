@@ -29,6 +29,18 @@ endif()
 
 add_subdirectory(src)
 
+if(STLIO_INSTALL)
+  install(TARGETS stlio
+      EXPORT stlio-targets
+      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  )
+  install(
+    DIRECTORY include/
+    DESTINATION ${STLIO_INSTALL_INCLUDEDIR}
+  )
+endif()
+
 if (STLIO_BUILD_TESTING)
   enable_testing()
   add_subdirectory(tests)
