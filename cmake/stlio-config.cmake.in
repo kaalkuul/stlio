@@ -1,0 +1,9 @@
+if(NOT TARGET stlio::stlio)
+    include("${CMAKE_CURRENT_LIST_DIR}/stlio-targets.cmake")
+endif()
+
+set(STLIO_lIBRARIES stlio::stlio)
+
+if(STLIO_BUILD_TEST_LIB)
+    list(APPEND STLIO_lIBRARIES stlio::testlib)
+endif()
