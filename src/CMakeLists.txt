@@ -10,5 +10,5 @@ target_include_directories(stlio
     ${PROJECT_SOURCE_DIR}/include
   INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/mathlib>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/stlio>
 )
